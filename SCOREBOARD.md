@@ -21,5 +21,5 @@ Starting account: $1,000 USD; maximum BTC position: $150 USD.
 
 ## Sources
 
-- `daily-breakout-validation-results.json` (original research folder)
-- `research-close-valid-v2/results.json` (weekly research folder)
+- `reports/daily-breakout.json` (included research report)
+- `reports/weekly-trend.json` (included research report)

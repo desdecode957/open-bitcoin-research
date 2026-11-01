@@ -1,0 +1,520 @@
+{
+  "manifest": {
+    "protocol": {
+      "version": 2,
+      "strategy": {
+        "mode": "PAPER_ONLY",
+        "strategy": "WEEKLY_SMA200",
+        "product": "BTC-USD",
+        "average_completed_days": 200,
+        "include_signal_day": true,
+        "signal_day": "Sunday UTC",
+        "daily_clock": "UTC",
+        "account_usd": 1000,
+        "entry_budget_usd": 150,
+        "fee_each_side": 0.012,
+        "adverse_slippage": 0.0005,
+        "minimum_daily_candles": 1,
+        "require_day_first_and_last": false,
+        "require_day_last": true,
+        "maximum_signal_age_seconds": 900,
+        "intraday_stop": false
+      },
+      "download_start": "2022-01-01",
+      "training_start": "2022-08-01",
+      "split": "2024-01-01",
+      "end_exclusive": "2026-04-30",
+      "selection": "One fixed candidate; no parameter search or tuning.",
+      "execution": "Sunday close signal / next contiguous 5-minute open with costs; cancel stale signals across missing bars.",
+      "historical_status": "Previously examined history; additional historical comparison, not a pristine holdout. Earlier prices warm the average.",
+      "benchmarks": "Same $1000 account, hold $150 BTC / $850 cash, and all cash.",
+      "stress_fee_each_side": 0.015,
+      "stress_slippage_each_side": 0.001
+    },
+    "hashes": {
+      "research.py": "62c17078a835c6f6a7a72573482aa1a93eebcd1b929f57c6d88567f90ed29fa7",
+      "trend_paper.py": "5e9cb19a178233e45a1f11332da69fe29f1254f88eab85018e965e5bdc61fe95",
+      "market_history.py": "47cc0c17fc0c030826507f584de81aeaa68c59e3c848b39d0c96c21b475ecf22"
+    }
+  },
+  "training": [
+    {
+      "strategy": "Weekly SMA200",
+      "end_value": 1089.6344143169974,
+      "profit": 89.63441431699744,
+      "max_drawdown_pct": 4.20284387097376,
+      "max_drawdown_usd": 45.07219457038991,
+      "buys": 2,
+      "sells": 1,
+      "winning_sales": 1,
+      "fees_paid": 5.828416729867711,
+      "realized": 33.47297742577487,
+      "open_cost": 150.0,
+      "unsold_btc": 0.004936849949089834,
+      "open_net_profit": 56.16143689122262,
+      "worst_closed_trade": 0.0,
+      "longest_losing_streak": 0,
+      "skipped_weeks_incomplete_data": 0,
+      "annual_value_changes": {
+        "2022": 0.0,
+        "2023": 89.63441431699744
+      },
+      "trades": [
+        {
+          "time": 1673827200,
+          "side": "BUY",
+          "fill": 20890.109834999996,
+          "fee": 1.8,
+          "amount": 150.0,
+          "btc": 0.0070942661944122815,
+          "signal_time": 1673827200
+        },
+        {
+          "time": 1692576000,
+          "side": "SELL",
+          "fill": 26176.265320000002,
+          "fee": 2.2284167298677113,
+          "amount": 183.47297742577487,
+          "btc": 0.0070942661944122815,
+          "profit": 33.47297742577487,
+          "signal_time": 1692576000
+        },
+        {
+          "time": 1698019200,
+          "side": "BUY",
+          "fill": 30019.142069999998,
+          "fee": 1.8,
+          "amount": 150.0,
+          "btc": 0.004936849949089834,
+          "signal_time": 1698019200
+        }
+      ]
+    },
+    {
+      "strategy": "Hold $150 BTC",
+      "end_value": 1115.395797010972,
+      "profit": 115.39579701097205,
+      "max_drawdown_pct": 5.960533306625804,
+      "max_drawdown_usd": 60.0711940478202,
+      "buys": 1,
+      "sells": 0,
+      "winning_sales": 0,
+      "fees_paid": 1.8,
+      "realized": 0.0,
+      "open_cost": 150.0,
+      "unsold_btc": 0.00635530701919577,
+      "open_net_profit": 115.39579701097199,
+      "worst_closed_trade": 0.0,
+      "longest_losing_streak": 0,
+      "skipped_weeks_incomplete_data": 0,
+      "annual_value_changes": {
+        "2022": -46.25711339985048,
+        "2023": 161.65291041082253
+      },
+      "trades": [
+        {
+          "time": 1659312000,
+          "side": "BUY",
+          "fill": 23319.093719999997,
+          "fee": 1.8,
+          "amount": 150.0,
+          "btc": 0.00635530701919577,
+          "signal_time": null
+        }
+      ]
+    }
+  ],
+  "validation": [
+    {
+      "strategy": "Weekly SMA200",
+      "end_value": 1020.5263282214155,
+      "profit": 20.526328221415497,
+      "max_drawdown_pct": 10.123959486088497,
+      "max_drawdown_usd": 110.87899573555455,
+      "buys": 7,
+      "sells": 7,
+      "winning_sales": 3,
+      "fees_paid": 25.60234406746659,
+      "realized": 20.526328221415554,
+      "open_cost": 0.0,
+      "unsold_btc": 0.0,
+      "open_net_profit": 0.0,
+      "worst_closed_trade": -19.56755095071486,
+      "longest_losing_streak": 3,
+      "skipped_weeks_incomplete_data": 0,
+      "annual_value_changes": {
+        "2024": 44.06448356177202,
+        "2025": -23.538155340356525,
+        "2026": 0.0
+      },
+      "trades": [
+        {
+          "time": 1704672000,
+          "side": "BUY",
+          "fill": 43976.49726,
+          "fee": 1.8,
+          "amount": 150.0,
+          "btc": 0.003369981904738904,
+          "signal_time": 1704672000
+        },
+        {
+          "time": 1720396800,
+          "side": "SELL",
+          "fill": 55824.68369500001,
+          "fee": 2.2575380866790757,
+          "amount": 185.8706358032439,
+          "btc": 0.003369981904738904,
+          "profit": 35.870635803243914,
+          "signal_time": 1720396800
+        },
+        {
+          "time": 1721001600,
+          "side": "BUY",
+          "fill": 60835.372485,
+          "fee": 1.8,
+          "amount": 150.0,
+          "btc": 0.0024360827253345286,
+          "signal_time": 1721001600
+        },
+        {
+          "time": 1722816000,
+          "side": "SELL",
+          "fill": 58102.244345,
+          "fee": 1.6985024850242438,
+          "amount": 139.84337126699606,
+          "btc": 0.0024360827253345286,
+          "profit": -10.156628733003942,
+          "signal_time": 1722816000
+        },
+        {
+          "time": 1724630400,
+          "side": "BUY",
+          "fill": 64282.135005,
+          "fee": 1.8,
+          "amount": 150.0,
+          "btc": 0.0023054616961380122,
+          "signal_time": 1724630400
+        },
+        {
+          "time": 1725235200,
+          "side": "SELL",
+          "fill": 57262.564395,
+          "fee": 1.584199786023706,
+          "amount": 130.43244904928514,
+          "btc": 0.0023054616961380122,
+          "profit": -19.56755095071486,
+          "signal_time": 1725235200
+        },
+        {
+          "time": 1727654400,
+          "side": "BUY",
+          "fill": 65632.81000499999,
+          "fee": 1.8,
+          "amount": 150.0,
+          "btc": 0.0022580169885871096,
+          "signal_time": 1727654400
+        },
+        {
+          "time": 1728259200,
+          "side": "SELL",
+          "fill": 62779.524535000004,
+          "fee": 1.7010867952254152,
+          "amount": 140.05614614022585,
+          "btc": 0.0022580169885871096,
+          "profit": -9.943853859774151,
+          "signal_time": 1728259200
+        },
+        {
+          "time": 1729468800,
+          "side": "BUY",
+          "fill": 69049.37743499999,
+          "fee": 1.8,
+          "amount": 150.0,
+          "btc": 0.002146290169516863,
+          "signal_time": 1729468800
+        },
+        {
+          "time": 1741564800,
+          "side": "SELL",
+          "fill": 80667.85589500002,
+          "fee": 2.077639513241298,
+          "amount": 171.05898659020016,
+          "btc": 0.002146290169516863,
+          "profit": 21.058986590200163,
+          "signal_time": 1741564800
+        },
+        {
+          "time": 1742774400,
+          "side": "BUY",
+          "fill": 86135.99647499999,
+          "fee": 1.8,
+          "amount": 150.0,
+          "btc": 0.0017205350383682318,
+          "signal_time": 1742774400
+        },
+        {
+          "time": 1743379200,
+          "side": "SELL",
+          "fill": 82338.79001,
+          "fee": 1.7000012787485894,
+          "amount": 139.9667719503005,
+          "btc": 0.0017205350383682318,
+          "profit": -10.033228049699488,
+          "signal_time": 1743379200
+        },
+        {
+          "time": 1745798400,
+          "side": "BUY",
+          "fill": 93827.45027999999,
+          "fee": 1.8,
+          "amount": 150.0,
+          "btc": 0.0015794951217126905,
+          "signal_time": 1745798400
+        },
+        {
+          "time": 1762732800,
+          "side": "SELL",
+          "fill": 104641.882885,
+          "fee": 1.983376122524258,
+          "amount": 163.29796742116392,
+          "btc": 0.0015794951217126905,
+          "profit": 13.297967421163918,
+          "signal_time": 1762732800
+        }
+      ]
+    },
+    {
+      "strategy": "Hold $150 BTC",
+      "end_value": 1112.0275161632565,
+      "profit": 112.02751616325645,
+      "max_drawdown_pct": 17.73578366083619,
+      "max_drawdown_usd": 228.11310539627698,
+      "buys": 1,
+      "sells": 0,
+      "winning_sales": 0,
+      "fees_paid": 1.8,
+      "realized": 0.0,
+      "open_cost": 150.0,
+      "unsold_btc": 0.0035027408589147296,
+      "open_net_profit": 112.0275161632564,
+      "worst_closed_trade": 0.0,
+      "longest_losing_streak": 0,
+      "skipped_weeks_incomplete_data": 0,
+      "annual_value_changes": {
+        "2024": 172.91015721063263,
+        "2025": -20.256741424967004,
+        "2026": -40.62589962240918
+      },
+      "trades": [
+        {
+          "time": 1704067200,
+          "side": "BUY",
+          "fill": 42309.72429,
+          "fee": 1.8,
+          "amount": 150.0,
+          "btc": 0.0035027408589147296,
+          "signal_time": null
+        }
+      ]
+    }
+  ],
+  "stress": [
+    {
+      "strategy": "Weekly SMA200",
+      "end_value": 1012.9715225819016,
+      "profit": 12.971522581901581,
+      "max_drawdown_pct": 10.455648884466928,
+      "max_drawdown_usd": 114.33076896523403,
+      "buys": 7,
+      "sells": 7,
+      "winning_sales": 3,
+      "fees_paid": 31.93738359261779,
+      "realized": 12.971522581901553,
+      "open_cost": 0.0,
+      "unsold_btc": 0.0,
+      "open_net_profit": 0.0,
+      "worst_closed_trade": -20.488025091028902,
+      "longest_losing_streak": 3,
+      "skipped_weeks_incomplete_data": 0,
+      "annual_value_changes": {
+        "2024": 38.46069533125092,
+        "2025": -25.489172749349336,
+        "2026": 0.0
+      },
+      "trades": [
+        {
+          "time": 1704672000,
+          "side": "BUY",
+          "fill": 43998.47451999999,
+          "fee": 2.25,
+          "amount": 150.0,
+          "btc": 0.0033580709697750683,
+          "signal_time": 1704672000
+        },
+        {
+          "time": 1720396800,
+          "side": "SELL",
+          "fill": 55796.75739,
+          "fee": 2.8105420679841226,
+          "amount": 184.55892913095738,
+          "btc": 0.0033580709697750683,
+          "profit": 34.55892913095738,
+          "signal_time": 1720396800
+        },
+        {
+          "time": 1721001600,
+          "side": "BUY",
+          "fill": 60865.77496999999,
+          "fee": 2.25,
+          "amount": 150.0,
+          "btc": 0.0024274725832838604,
+          "signal_time": 1721001600
+        },
+        {
+          "time": 1722816000,
+          "side": "SELL",
+          "fill": 58073.17869,
+          "fee": 2.114565736411793,
+          "amount": 138.85648335770773,
+          "btc": 0.0024274725832838604,
+          "profit": -11.14351664229227,
+          "signal_time": 1722816000
+        },
+        {
+          "time": 1724630400,
+          "side": "BUY",
+          "fill": 64314.26001,
+          "fee": 2.25,
+          "amount": 150.0,
+          "btc": 0.0022973132238017957,
+          "signal_time": 1724630400
+        },
+        {
+          "time": 1725235200,
+          "side": "SELL",
+          "fill": 57233.918789999996,
+          "fee": 1.972263577293976,
+          "amount": 129.5119749089711,
+          "btc": 0.0022973132238017957,
+          "profit": -20.488025091028902,
+          "signal_time": 1725235200
+        },
+        {
+          "time": 1727654400,
+          "side": "BUY",
+          "fill": 65665.61000999999,
+          "fee": 2.25,
+          "amount": 150.0,
+          "btc": 0.002250036205823713,
+          "signal_time": 1727654400
+        },
+        {
+          "time": 1728259200,
+          "side": "SELL",
+          "fill": 62748.11907,
+          "fee": 2.117783096322561,
+          "amount": 139.0677566585148,
+          "btc": 0.002250036205823713,
+          "profit": -10.93224334148519,
+          "signal_time": 1728259200
+        },
+        {
+          "time": 1729468800,
+          "side": "BUY",
+          "fill": 69083.88487,
+          "fee": 2.25,
+          "amount": 150.0,
+          "btc": 0.002138704276374028,
+          "signal_time": 1729468800
+        },
+        {
+          "time": 1741564800,
+          "side": "SELL",
+          "fill": 80627.50179000001,
+          "fee": 2.5865757430744143,
+          "amount": 169.85180712855322,
+          "btc": 0.002138704276374028,
+          "profit": 19.85180712855322,
+          "signal_time": 1741564800
+        },
+        {
+          "time": 1742774400,
+          "side": "BUY",
+          "fill": 86179.04294999999,
+          "fee": 2.25,
+          "amount": 150.0,
+          "btc": 0.0017144539431207507,
+          "signal_time": 1742774400
+        },
+        {
+          "time": 1743379200,
+          "side": "SELL",
+          "fill": 82297.60002,
+          "fee": 2.1164316729549504,
+          "amount": 138.97901319070843,
+          "btc": 0.0017144539431207507,
+          "profit": -11.020986809291571,
+          "signal_time": 1743379200
+        },
+        {
+          "time": 1745798400,
+          "side": "BUY",
+          "fill": 93874.34055999998,
+          "fee": 2.25,
+          "amount": 150.0,
+          "btc": 0.001573912520914757,
+          "signal_time": 1745798400
+        },
+        {
+          "time": 1762732800,
+          "side": "SELL",
+          "fill": 104589.53577,
+          "fee": 2.4692216985759727,
+          "amount": 162.1455582064889,
+          "btc": 0.001573912520914757,
+          "profit": 12.145558206488886,
+          "signal_time": 1762732800
+        }
+      ]
+    },
+    {
+      "strategy": "Hold $150 BTC",
+      "end_value": 1110.1783631768867,
+      "profit": 110.1783631768867,
+      "max_drawdown_pct": 17.652868105458296,
+      "max_drawdown_usd": 226.503289617194,
+      "buys": 1,
+      "sells": 0,
+      "winning_sales": 0,
+      "fees_paid": 2.25,
+      "realized": 0.0,
+      "open_cost": 150.0,
+      "unsold_btc": 0.003490360697909403,
+      "open_net_profit": 110.17836317688665,
+      "worst_closed_trade": 0.0,
+      "longest_losing_streak": 0,
+      "skipped_weeks_incomplete_data": 0,
+      "annual_value_changes": {
+        "2024": 170.6313496629432,
+        "2025": -20.11378768312875,
+        "2026": -40.33919880292774
+      },
+      "trades": [
+        {
+          "time": 1704067200,
+          "side": "BUY",
+          "fill": 42330.868579999995,
+          "fee": 2.25,
+          "amount": 150.0,
+          "btc": 0.003490360697909403,
+          "signal_time": null
+        }
+      ]
+    }
+  ],
+  "positive_in_both_periods_and_later_stress": true,
+  "conclusion": "Positive in both historical periods and the later cost stress; forward paper evidence still required.",
+  "training_data_sha256": "7e1d3fcf57887f37df6266b9459a8af85fc5d13fdc813101094f1606b5b2d61a",
+  "validation_data_sha256": "3cfd31686af28a818d5d43e688cceb5591779d389d8c9793d2ef6c1fa1b9e82b",
+  "limitations": "No proof of future returns or statistical significance. Prior research examined these dates. Weekly exit is not an intraday stop. Fixed candidate, no optimization. Small daily gaps can affect average inputs. Missing first execution bars cancel historical fills; live execution uses fresh spot prices within 15 minutes, so results will differ. Sparse trades give weak evidence. No interest, taxes, CAD conversion, actual spread/latency, or outages beyond recorded data gaps modeled. Repeated losses can exceed a single $150 position."
+}

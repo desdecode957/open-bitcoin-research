@@ -9,8 +9,8 @@ from pathlib import Path
 HOME = Path.home()
 ROOT = Path(__file__).resolve().parent
 
-DAILY = HOME / "btc-long-history-20261027/daily-breakout-validation-results.json"
-WEEKLY = HOME / "btc-weekly-trend-paper/research-close-valid-v2/results.json"
+DAILY = ROOT / "reports/daily-breakout.json"
+WEEKLY = ROOT / "reports/weekly-trend.json"
 
 
 def load(path):
@@ -80,8 +80,8 @@ def main():
         "",
         "## Sources",
         "",
-        "- `daily-breakout-validation-results.json` (original research folder)",
-        "- `research-close-valid-v2/results.json` (weekly research folder)",
+        "- `reports/daily-breakout.json` (included research report)",
+        "- `reports/weekly-trend.json` (included research report)",
     ]
 
     output = ROOT / "SCOREBOARD.md"
