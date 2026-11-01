@@ -23,3 +23,13 @@ Limitations:
 - Independent implementation verification is still needed.
 - These are training results, not future profit guarantees.
 - Original historical price data is not included in this repository.
+
+## Fresh Coinbase Data Check — November 1, 2026
+
+- Period: January 1, 2022, 00:00 UTC to January 2, 2022, 00:55 UTC (exclusive)
+- Fresh candles: 299
+- Original candles: 299
+- Exact comparison: PASS
+
+This confirms one fresh Coinbase batch matches the original cache.
+The remaining historical batches have not been freshly verified.
