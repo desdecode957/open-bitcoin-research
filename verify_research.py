@@ -9,8 +9,10 @@ import audit_hybrid_trades as audit
 import daily_breakout_research as breakout
 import long_history_research as history
 
-source = Path.home() / "btc-long-history-20261027"
-report = json.loads((source / "daily-breakout-results.json").read_text())
+import sys
+
+source = Path(sys.argv[1]).expanduser().resolve() if len(sys.argv) > 1 else Path(__file__).resolve().parent
+report = json.loads((Path(__file__).resolve().parent / "reports/training-breakout.json").read_text())
 
 rows = audit.cached_training(source)
 
