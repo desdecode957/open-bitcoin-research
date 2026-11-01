@@ -39,6 +39,10 @@ verification will fail rather than silently accept changes.
 
 python3 verify_research.py
 
+Or, if your historical data is in another folder:
+
+python3 verify_research.py /path/to/data-folder
+
 Expected historical training results:
 - Net profit: +$90.02 USD
 - Maximum drawdown: 4.56%
