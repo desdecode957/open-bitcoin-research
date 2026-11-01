@@ -33,3 +33,17 @@ Limitations:
 
 This confirms one fresh Coinbase batch matches the original cache.
 The remaining historical batches have not been freshly verified.
+
+## Complete Fresh-Data Reproduction — November 1, 2026
+
+- Fresh Coinbase historical data: 2022–2023
+- Validated candles: 210,176
+- Data coverage: 99.970%
+- Original SHA256 fingerprint: MATCH
+- Automated strategy verification: PASS
+- Reproduced net profit: +$90.02 USD
+- Reproduced maximum drawdown: 4.56%
+- Reproduced trades: 3 buys, 2 sells
+
+This confirms reproducibility using freshly downloaded data.
+It does not establish future profitability.
