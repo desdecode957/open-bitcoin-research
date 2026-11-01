@@ -61,3 +61,19 @@ No strategy has demonstrated reliable future profitability.
 Verified using the original cached historical data.
 Fresh downloads and clean-computer installation are not yet tested.
 Some additional research scripts still require saved files not included here.
+
+## Project maturity
+
+Verified:
+- Automatic strategy scoreboard
+- Historical Bitcoin data downloader
+- Daily breakout 60/30 reproduction using freshly downloaded data
+- Equal-cost historical comparisons with weekly SMA200
+
+Still experimental:
+- Additional research and audit programs
+- Independent reproduction on a different computer
+- Forward paper-trading results
+
+No strategy is proven to produce reliable future profits.
+This repository is research software, not a live trading system.
