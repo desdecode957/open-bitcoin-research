@@ -18,3 +18,42 @@ independent testing.
 
 Current status:
 Research only. No proven profitable strategy yet.
+
+## Reproducing the research
+
+Requires Python 3 and an internet connection to download data.
+No live trading account or API keys are required.
+
+### 1. Download historical Bitcoin prices
+
+python3 download_training_data.py
+
+This downloads Coinbase BTC-USD five-minute candles
+for January 2022 through December 2023.
+
+The downloader checks the historical data fingerprint.
+If Coinbase's records differ from our original dataset,
+verification will fail rather than silently accept changes.
+
+### 2. Verify the original breakout results
+
+python3 verify_research.py
+
+Expected historical training results:
+- Net profit: +$90.02 USD
+- Maximum drawdown: 4.56%
+- Buys: 3
+- Sells: 2
+
+### 3. Regenerate the strategy scoreboard
+
+python3 generate_scoreboard.py
+
+All results are historical simulations.
+No strategy has demonstrated reliable future profitability.
+
+### Current reproducibility status
+
+Verified using the original cached historical data.
+Fresh downloads and clean-computer installation are not yet tested.
+Some additional research scripts still require saved files not included here.
