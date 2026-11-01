@@ -15,3 +15,18 @@ Daily breakout performed better in this historical comparison.
 
 These dates were previously examined, so this is not a new
 untouched holdout test. Results do not prove future profitability.
+
+## Higher-Fee Stress Test
+
+Period: January 2024 – April 29, 2026
+Fee: 1.20% per side
+Slippage: 0.05% per side
+
+| Strategy | Net profit | Maximum drawdown |
+|---|---:|---:|
+| Daily breakout 60/30 | +$28.12 | 5.24% |
+| Weekly SMA200 | +$20.53 | 10.12% |
+
+Daily breakout performed better under both tested fee assumptions.
+These are previously examined historical dates, not a fresh holdout.
+Neither strategy has demonstrated future profitability.
