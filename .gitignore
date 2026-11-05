@@ -19,3 +19,7 @@ paper-bots/**/ndax_paper.before-*.py
 paper-bots/**/ndax_state.before-*.json
 .venv/
 venv/
+
+# Runtime price history and explicit migration backups
+paper-bots/**/candle-cache/
+paper-bots/**/*.bak

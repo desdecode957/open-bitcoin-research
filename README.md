@@ -80,7 +80,7 @@ This repository is research software, not a live trading system.
 
 ## Forward paper-bot experiments
 
-The [paper-bots](paper-bots/README.md) folder contains the moving-reference,
-sustained-price-shift and NDAX BTC/CAD simulations, with synthetic offline tests.
+The [paper-bots](paper-bots/README.md) folder contains moving-reference, rolling, sustained-price-shift, NDAX BTC/CAD,
+daily breakout and weekly trend simulations, with synthetic offline tests.
 Contributions and independently checked improvements are welcome. These are
 forward experiments, not additional validated historical results.

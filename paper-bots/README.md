@@ -1,7 +1,7 @@
 # Forward paper-bot experiments
 
-Public-data-only simulations for comparing ways of moving a Bitcoin trading
-reference. These programs have no trading credentials or real-order API.
+Public-data-only simulations for comparing moving Bitcoin trading references
+and daily/weekly trend strategies. These programs have no trading credentials or real-order API.
 They run on Linux/macOS with Python 3.11+ and the standard library (`fcntl` is
 used for process locks). Historical research elsewhere in this repository is
 unchanged. None of these strategies is established as profitable.
@@ -12,14 +12,20 @@ unchanged. None of these strategies is established as profitable.
 | `shift/` | Previous-hour time-weighted average must be at least 1% beyond the saved reference on the same side for 30 minutes | Whole-position target of at least $2 simulated net profit | 1.2% fee +0.05% slippage per side |
 | `ndax/` | Reset after trades, or manually to the latest BTC/CAD midpoint | First purchase pins the position target at its midpoint +4%; manual moves/additional buys keep it, and positive net position profit is still required | Bid/ask spread +0.20% fee +0.05% slippage per side |
 
-Each uses $50 simulated buys with a $150 outstanding-cost cap and three buy
-slots. Defaults start with 1,000 simulated units of the applicable currency.
-The Coinbase experiments use USD quotes; NDAX uses CAD. The printed NDAX
-USD conversion, when supplied, is a display estimate only.
+The Overton variants use $50 simulated buys and three buy slots with a $150
+outstanding-cost cap. Rolling starts with 160 simulated USD; moving, shift and
+NDAX start with 1,000 units of their quote currency. Daily breakout and weekly
+trend start with 1,000 USD and one position capped at $150. Coinbase quotes are
+USD; NDAX uses CAD. Optional NDAX USD conversions are display estimates only.
 
-The rolling-24-hour-reference bot is also being observed on the Pi, but its
-current source has not yet been exported. It is intentionally not reconstructed
-from logs and is not included in this publication.
+| Additional folder | Decision rule | Exit/cost distinction |
+| --- | --- | --- |
+| `rolling/` | Reference follows the arithmetic mean of retained 24h samples; -1% buy / +4% sell | Positive profit plus a 0.5% sell buffer required; 1.2% fees each way |
+| `btc-breakout-paper/` | Daily close above prior 60-day high enters; below prior 30-day low exits | CAN sell at a loss; 1.2% fees +0.05% adverse slippage each way |
+| `btc-weekly-trend-paper/` | Sunday close versus 200 completed daily-close average | CAN sell at a loss; same fee/slippage assumptions as breakout |
+
+Breakout/weekly are deliberately preserved research strategies, not profit-only
+Overton variants. Their source and synthetic tests describe the loss-exit behavior.
 
 ## Run one simulation
 
@@ -29,13 +35,18 @@ Run each command in its own terminal; each folder has separate state/locks.
 python3 paper-bots/moving/moving_box.py
 python3 paper-bots/shift/accepted_range_paper.py
 python3 paper-bots/ndax/ndax_paper.py
+python3 paper-bots/rolling/overton_rolling_paper.py
+python3 paper-bots/btc-breakout-paper/breakout_paper.py
+python3 paper-bots/btc-weekly-trend-paper/trend_paper.py
 ```
 
-Use `--status` to read saved results without sampling or trading. NDAX requires
+All except rolling support `--status` to read saved results without sampling or trading. NDAX requires
 24 hours of sufficiently continuous samples; shift requires one continuous hour.
 Gaps over 10 minutes restart shift's collection/confirmation; NDAX's gap limit
 is 15 minutes. Moving's current trade-reset implementation has no warm-up gate.
-The `moving/` original-bot comparison is optional and unavailable unless its
+Rolling requires 24 elapsed hours and 100 recent samples; it has no maximum-gap gate
+or process lock. Its public copy uses folder-local state rather than the deployed
+home-level state path, so run only one instance per research folder. The `moving/` original-bot comparison is optional and unavailable unless its
 external state file exists; missing comparison data does not stop the simulation.
 
 ## Check changes offline
@@ -80,3 +91,14 @@ Issues and pull requests are welcome. Include the exact rule, cost assumptions,
 offline checks and a fixed-period comparison that values unsold BTC and records
 drawdown. Changing a reference is not evidence that it predicts price direction.
 No personal account balances, keys or operational state are published here.
+
+## Trend-strategy reproduction
+
+The breakout and weekly bots download completed daily history on startup. They
+can take time to populate `candle-cache/`, and deliberately skip stale signals
+rather than fill at historical prices. Run `--once` for one paper-only poll.
+Both validate account balances against recorded trades. Optional explicit
+migrations preserve the ledger; the publication commands do not run migrations.
+Their holding benchmark is $150 BTC plus $850 cash and includes modeled exit
+costs. Rolling starts with a different budget and prints no holding benchmark.
+These differences must be controlled before ranking the strategies.
