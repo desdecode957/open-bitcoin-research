@@ -77,3 +77,10 @@ Still experimental:
 
 No strategy is proven to produce reliable future profits.
 This repository is research software, not a live trading system.
+
+## Forward paper-bot experiments
+
+The [paper-bots](paper-bots/README.md) folder contains the moving-reference,
+sustained-price-shift and NDAX BTC/CAD simulations, with synthetic offline tests.
+Contributions and independently checked improvements are welcome. These are
+forward experiments, not additional validated historical results.

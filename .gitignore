@@ -7,3 +7,15 @@ __pycache__/
 *secrets*
 
 backtest-data/
+
+# Forward paper-bot runtime files: keep simulated account state out of Git.
+paper-bots/**/*state*.json
+paper-bots/**/*.csv
+paper-bots/**/*.lock
+paper-bots/**/*.tmp
+paper-bots/**/cdp_api_key.json
+paper-bots/**/private_key*
+paper-bots/**/ndax_paper.before-*.py
+paper-bots/**/ndax_state.before-*.json
+.venv/
+venv/
